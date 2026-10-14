@@ -57,11 +57,16 @@ def _from_wlk(w: wlk.Wlk) -> Result:
 
 def examine(path: str, rel: str = "") -> Result:
     rel = rel or os.path.basename(path)
-    size = os.path.getsize(path)
-    if size == 0 or size > MAX_SIZE:
-        return Result(rel, SKIPPED, note="비었거나 너무 큼")
     try:
-        kind, parsed = load(open(path, "rb").read())
+        size = os.path.getsize(path)
+        if size == 0 or size > MAX_SIZE:
+            return Result(rel, SKIPPED, note="비었거나 너무 큼")
+        with open(path, "rb") as f:
+            raw = f.read()
+    except OSError as e:
+        return Result(rel, SKIPPED, note=f"읽을 수 없음({e.strerror}; 클라우드 전용 파일일 수 있음)")
+    try:
+        kind, parsed = load(raw)
     except NotAudio as e:
         return Result(rel, UNKNOWN, note=str(e))
     r = _from_mlk(parsed) if kind == "mlk" else _from_wlk(parsed)

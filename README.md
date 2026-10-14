@@ -10,8 +10,8 @@ Compile 윈도우판 게임의 오디오 묶음을 풀어 곡은 표준 MIDI(`.m
 
 | 확장자 | 내용 | 변종 | 확인한 게임 |
 |---|---|---|---|
-| `.MLK` | MIDI 곡 묶음 | 하나 | 환세쾌진극(`SMASH.MLK`, 14곡) · 취호전(`MIDDATA.MLK`, 20곡) |
-| `.WLK` | 효과음 PCM 묶음 | 헤더 없음 / `WLKF0200` | 환세쾌진극(`GENSEI.WLK`, 10개) · 취호전(`PCMDATA.WLK`, 54개) |
+| `.MLK` | MIDI 곡 묶음 | 하나 | 환세쾌진극(`SMASH.MLK`, 14곡) · 취호전(`MIDDATA.MLK`, 20곡) · 패유기(`HAIYUKI.MLK`, 14곡) |
+| `.WLK` | 효과음 PCM 묶음 | 헤더 없음 / `WLKF0200` | 환세쾌진극(`GENSEI.WLK`, 10개) · 취호전(`PCMDATA.WLK`, 54개) · 패유기(`HAIYUKI.WLK`, 17개) |
 
 확장자가 아니라 내용으로 판별함. 바이트 레이아웃은 [`FORMATS.md`](FORMATS.md).
 
